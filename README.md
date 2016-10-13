@@ -1,4 +1,4 @@
-# [ZNC][]
+# Docker container for [ZNC][]
 
 ## Description
 
@@ -88,7 +88,7 @@ down ZNC's startup with a few seconds.
 
 This image, by default, runs znc under [supervisord](http://supervisord.org/),
 with fixed arguments. This helps to recover the process if it should crash
-inside the container. Sometimes, it can be handy to run znc with custome
+inside the container. Sometimes, it can be handy to run znc with custom
 arguments, and to do so you can override the default arguments as follows. Note
 that, in most cases, you should map in a configuration directory using
 `-v <some dir>:/config` and tell znc where that directory can be accessed in the
@@ -103,8 +103,6 @@ note of the use of `-ti` instead of `-d`. This attaches our terminal to
 the container, so we can interact with ZNC's makepass process. With `-d` it
 would simply run in the background. The `--rm` argument will automatically
 remove the spawned container after exection concludes.
-
-## Notes
 
 [pipework]: https://github.com/jpetazzo/pipework
 [ZNC]: http://znc.in
