@@ -10,6 +10,9 @@ ADD setup/*.conf /etc/supervisor/conf.d/
 # add install bash script
 ADD setup/root/*.sh /root/
 
+# add default znc configuration file
+ADD setup/znc.conf.default /root/
+
 # add pipework
 ADD https://raw.githubusercontent.com/jpetazzo/pipework/master/pipework /root/
 
@@ -26,14 +29,14 @@ RUN chmod +x /root/pipework /root/*.sh && \
 # map /config to host defined config path (used to store configuration from app)
 VOLUME /config
 
-# map /data to host defined data path (used to store data from app)
-VOLUME /cache
-
 # expose port for http
-EXPOSE 3128/tcp
+EXPOSE 6667/tcp
 
 # set environment variables for user nobody
 ENV HOME /home/nobody
+
+ENV PUID 1000
+ENV PGID 1000
 
 # set permissions
 #################
